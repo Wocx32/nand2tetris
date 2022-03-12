@@ -55,13 +55,11 @@ CHIP ALU {
     Mux16(a=xAndy, b=xplusy, sel=f, out=tempout);
 
     Not16(in=tempout, out=tempoutNot);
-    Mux16(a=tempout, b=tempoutNot, sel=no, out=out, out=outtmp, out[15]=msb);
+    Mux16(a=tempout, b=tempoutNot, sel=no, out=out, out=outtmp, out[15]=ng);
 
 
     Not16(in=outtmp, out=Notouttmp);
     And16Way(in=Notouttmp, out=zr);
-
-    And(a=msb, b=true, out=ng);
 }
 
 
